@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "axis_snap Service", "WindowsService1\axis_snap.csproj", "{C6944152-5A95-4EB9-9655-9A3DA5F4A58E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "axis_snap Installer", "TestSetup1\TestSetup1.vdproj", "{788C8017-FBED-4AE6-BC36-D8B507D25351}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6944152-5A95-4EB9-9655-9A3DA5F4A58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6944152-5A95-4EB9-9655-9A3DA5F4A58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6944152-5A95-4EB9-9655-9A3DA5F4A58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6944152-5A95-4EB9-9655-9A3DA5F4A58E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788C8017-FBED-4AE6-BC36-D8B507D25351}.Debug|Any CPU.ActiveCfg = Debug
+		{788C8017-FBED-4AE6-BC36-D8B507D25351}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
