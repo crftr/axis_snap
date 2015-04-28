@@ -7,6 +7,6 @@ This application was born from the need for camera snapshot exports every minute
 
 
 ## Compatibility
-As a Windows service, it is only compatible with Microsoft Windows.  It's written in C# with .NET 2.0 -- it's safe to assume compatibility with any patched server running Windows 2003 or newer.
+As a Windows service, it is only compatible with Microsoft Windows.  It's written in C# with .NET 2.0 -- it's safe to assume compatibility with any patched server running at least Windows 2003.
 
 axis_snap only supports AXIS encoders at this time.
