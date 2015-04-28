@@ -1,8 +1,3 @@
-/*
- *  Michael Herrera (michael.herrera@gmail.com)
- * 
- */
-
 using ICSharpCode.SharpZipLib.Zip;
 using System;
 using System.Configuration;
@@ -15,10 +10,7 @@ namespace snapService
 {
     class CWorker
     {
-        // ------------------------------------------------------------------------------
-
         #region Main working thread
-
 
         internal static void harvestThreadAgent()
         {
@@ -65,13 +57,9 @@ namespace snapService
             }
         }
 
-
         #endregion
 
-        // ------------------------------------------------------------------------------
-
         #region Timer event handlers
-
 
         static void jpegHarvestTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -85,8 +73,7 @@ namespace snapService
 
             for (int idx = 0; idx < _numCameras; idx++)
             {
-
-                // CAPTURE JPEG -----------------
+                // JPEG Capture
 
                 jpegSourceURL = ConfigurationManager.AppSettings[_cameraJpegPrefix + idx.ToString() + _cameraJpegSuffix];
                 cameraLogicalID = ConfigurationManager.AppSettings[_cameraLogicalIDPrefix + idx.ToString() + _cameraLogicalIDSuffix];
@@ -103,7 +90,7 @@ namespace snapService
                     oZipAgent.CommitUpdate();
                     oZipAgent.Close();
 
-                    System.IO.File.Delete(jpegDestFilePath);                // 3. Delete Jpeg
+                    System.IO.File.Delete(jpegDestFilePath);                // 3. Delete temporary Jpeg
                 }
                 catch (Exception ex)
                 {
@@ -117,13 +104,9 @@ namespace snapService
             }
         }
 
-
         #endregion
 
-        // ------------------------------------------------------------------------------
-
         #region Zip Methods
-
 
         static ZipWriter getZipWriter(int cameraIndex)
         {
@@ -141,40 +124,22 @@ namespace snapService
             return new ZipWriter(_localArchiveRoot + zipArchiveName);
         }
 
-
         #endregion
 
-        // ------------------------------------------------------------------------------
-
-        #region Data members
-
-
         private static EventLog log;
-
         private static string _cameraJpegPrefix;
         private static string _cameraJpegSuffix;
-
         private static string _cameraLogicalIDPrefix;
         private static string _cameraLogicalIDSuffix;
         private static string _cameraCommonNameSuffix;
-
         private static int _captureIntervalInSeconds;
-
         private static int _zipArchiveDuration_hr;
-
         private static string _jpegNamingPrefix;
         private static string _localArchiveRoot;
         private static int _numCameras;
-
-
-        #endregion
-
-    } // class CWorker
-
-    // ----------------------------------------------------------------------------------
+    }
 
     #region ZIP CLASSES
-
 
     public class ZipDataSource : IStaticDataSource
     {
@@ -189,8 +154,7 @@ namespace snapService
         {
             return System.IO.File.OpenRead(filename);
         }
-    
-    } // class ZipDataSource
+    }
 
     public class ZipReader
     {
@@ -223,8 +187,7 @@ namespace snapService
         }
 
         public ZipFile getZipFile() { return oZipFile; }
-    
-    } // class ZipReader
+    }
 
     public class ZipWriter
     {
@@ -255,9 +218,7 @@ namespace snapService
         public void BeginUpdate()  { oZipFile.BeginUpdate();  }
         public void Close()        { oZipFile.Close();        }
         public void CommitUpdate() { oZipFile.CommitUpdate(); }
-    
-    } // class ZipWriter
-
+    }
 
     #endregion
 }
