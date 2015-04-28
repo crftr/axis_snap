@@ -1,8 +1,3 @@
-/*
- *  Michael Herrera (michael.herrera@gmail.com)
- * 
- */
-
 using System;
 using System.Diagnostics;
 using System.ServiceProcess;
@@ -14,9 +9,6 @@ namespace WindowsService1
 {
     public partial class Service1 : ServiceBase
     {
-
-        // ------------------------------------------------------------------------------
-
         /* EventID convention */
         internal enum lg_CamEventID : int
         {
@@ -35,8 +27,6 @@ namespace WindowsService1
             // Debug IDs (9xxx)
             DebugGeneric = 9000,
         }
-
-        // ------------------------------------------------------------------------------
 
         Thread worker = null;
 
@@ -78,9 +68,5 @@ namespace WindowsService1
                 (int)lg_CamEventID.Shutdown);
             worker.Abort();
         }
-
-        // ------------------------------------------------------------------------------
-
     } // class Service1
-
 } // namespace WindowsService1
